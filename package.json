@@ -25,7 +25,9 @@
     "trace",
     "error",
     "output",
-    "util"
+    "util",
+    "module",
+    "resolve"
   ],
   "author": "Eliran Malka",
   "license": "WTFPL",
