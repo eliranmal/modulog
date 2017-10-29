@@ -1,0 +1,19 @@
+{
+  "name": "modulog",
+  "version": "0.1.0",
+  "description": "a nice little logger for node.js that knows your modules auto-magically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliranmal/modulog.git"
+  },
+  "author": "eliran malka",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/eliranmal/modulog/issues"
+  },
+  "homepage": "https://github.com/eliranmal/modulog#readme"
+}
