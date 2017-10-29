@@ -1,6 +1,6 @@
 {
   "name": "modulog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a nice little logger for node.js that knows your modules auto-magically",
   "main": "./lib/modulog.js",
   "scripts": {
