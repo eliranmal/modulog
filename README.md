@@ -18,7 +18,7 @@ logger.info('info');
 logger.success('success');
 logger.warn('warn');
 logger.error('error');
-logger.dir('dir');
+logger.dir({ foo: 'bar' });
 logger.trace('trace');
 logger.debug('debug');
 ```
@@ -32,7 +32,7 @@ logger.debug('debug');
 ✔ [kickAssModule] success
 ⚠ [kickAssModule] warn
 ✘ [kickAssModule] error
-  [kickAssModule] 'dir'
+  [kickAssModule] { dir: 'dir' }
   [kickAssModule] Trace: trace
     at print (/Users/eliranm/dev/schema-repo/node_modules/modulog/lib/modulog.js:28:23)
     at Object.<anonymous> (/Users/eliranm/dev/schema-repo/test.js:17:8)
