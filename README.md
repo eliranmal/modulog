@@ -15,6 +15,7 @@ const logger = require('modulog')
 logger('default');
 logger.log('log');
 logger.info('info');
+logger.ok('ok');
 logger.success('success');
 logger.warn('warn');
 logger.error('error');
@@ -29,6 +30,7 @@ logger.debug('debug');
 » [kickAssModule] default
 » [kickAssModule] log
 ℹ [kickAssModule] info
+✔ [kickAssModule] ok
 ✔ [kickAssModule] success
 ⚠ [kickAssModule] warn
 ✘ [kickAssModule] error
