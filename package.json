@@ -3,8 +3,11 @@
   "version": "0.1.2",
   "description": "a nice little logger for node.js that knows your modules auto-magically",
   "main": "./lib/modulog.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --recursive ./test/specs",
     "release": "bin/release.sh",
     "patch": "npm version patch && npm run release",
     "minor": "npm version minor && npm run release",
@@ -40,6 +43,8 @@
   },
   "homepage": "https://github.com/eliranmal/modulog#readme",
   "devDependencies": {
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.0.2"
   }
 }
