@@ -3,8 +3,12 @@
 const assert = require('assert');
 const proxyquire = require('proxyquire').noCallThru();
 const memoryWriter = require('../stubs/memory-writer');
-const expectedIcons = require('../expected/icons');
+const expectedOutputs = require('../expected/outputs');
 
+const expectedIcons = Object.keys(expectedOutputs).reduce((accum, key) => {
+    accum[key] = expectedOutputs[key].icon;
+    return accum;
+}, {});
 
 const message = 'message';
 
