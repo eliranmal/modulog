@@ -35,7 +35,7 @@ describe('icons', function () {
 
         Object.keys(expectedIcons).forEach(function (cmd) {
             if (cmd !== 'default') {
-                extendedOperationSpec(modulog, cmd, message);
+                extendedOperationSpec(cmd);
             }
         });
     });
@@ -43,7 +43,7 @@ describe('icons', function () {
 });
 
 
-function extendedOperationSpec(modulog, cmd, message) {
+function extendedOperationSpec(cmd) {
 
     describe(`(${cmd})`, function () {
 
