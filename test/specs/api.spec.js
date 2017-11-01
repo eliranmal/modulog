@@ -8,9 +8,9 @@ const expectedOutputs = require('../expected/outputs');
 
 const message = 'message';
 
-let fakeOut = memoryWriter.stub;
+const fakeOut = memoryWriter.stub;
 
-let modulog = proxyquire('../../lib/modulog', {
+const modulog = proxyquire('../../lib/modulog', {
     './out': memoryWriter.stub
 });
 
