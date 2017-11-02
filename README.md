@@ -19,7 +19,8 @@ logger.ok('ok');
 logger.success('success');
 logger.warn('warn');
 logger.error('error');
-logger.dir({ dir: 'dir' });
+logger.dir({0: {1: {2: {3: 'dir'}}}});
+logger.dir({0: {1: {2: {3: 'dir'}}}}, {depth: 3});
 logger.trace('trace');
 logger.debug('debug');
 ```
@@ -34,7 +35,8 @@ logger.debug('debug');
 ✔ [kickAssModule] success
 ⚠ [kickAssModule] warn
 ✘ [kickAssModule] error
-  [kickAssModule] { dir: 'dir' }
+  [kickAssModule] { '0': { '1': { '2': [Object] } } }
+  [kickAssModule] { '0': { '1': { '2': { '3': 'dir' } } } }
   [kickAssModule] Trace: trace
     at print (/Users/me/dev/my-node-app/node_modules/modulog/lib/modulog.js:28:23)
     at Object.<anonymous> (/Users/me/dev/my-node-app/test.js:17:8)
