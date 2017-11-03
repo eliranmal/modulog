@@ -54,13 +54,29 @@ logger.debug('debug');
 
 ## log levels
 
-to control the log level, pass the `LOG_LEVEL` environment variable.  
+use the `LOG_LEVEL` environment variable, with the following possible values:
 
-- pass command names, e.g. `debug`, `warn`, to only switch on logging for that level.  
-  to switch on several levels, use pipes.
+- **command name**
+  `'debug'`, `'warn'`, etc. will only switch on logging for that level.  
+  pipes will switch on several levels, e.g. `'trace|dir'`.
 
-- use an integer to indicate the maximum level to log
+- **level number**
+  `2`, `7`, etc. will switch on messages with that level and below, i.e. success, warn and error.
+  
+  ```
+  error: 0
+  warn: 1
+  ok: 2
+  success: 2
+  log: 3
+  info: 4
+  dir: 5
+  debug: 6
+  trace: 7
+  ```
 
+
+### examples
 
 **.env**
 
@@ -69,7 +85,7 @@ to control the log level, pass the `LOG_LEVEL` environment variable.
 LOG_LEVEL='debug'
 # this will switch on trace, success and dir all together
 LOG_LEVEL='trace|success|dir'
-# this will switch on messages with level 2 and above (i.e. success, warn and error)
+# this will switch on success, warn and error all together
 LOG_LEVEL=2
 ```
 
