@@ -61,13 +61,13 @@ use the `LOG_LEVEL` environment variable, with the following possible values:
   pipes will switch on several levels, e.g. `'trace|dir'`.
 
 - **level number**
-  `2`, `7`, etc. will switch on messages with that level and below, i.e. success, warn and error.
-  check out the [commands.js][101] to see level numbers for each command.
+  `2`, `5`, etc. will switch on messages with that level and below, i.e. success, warn and error. the default level is `7` (everything).
+  check out [commands.js][101] to see level numbers for each command.
 
 
 ### examples
 
-**.env**
+#### in your .env
 
 ```dotenv
 # this will only switch on debug messages
@@ -78,7 +78,7 @@ LOG_LEVEL='trace|success|dir'
 LOG_LEVEL=2
 ```
 
-&hellip;or, from the shell:
+#### from the shell
 
 ```bash
 # this will switch on messages with level 2 and above (i.e. success, warn and error)
@@ -88,7 +88,7 @@ env LOG_LEVEL=2 node my-app.js
 if you do any of these, debug/trace are switched on automatically:
 
 ```bash
-env <DEBUG|TRACE>=true node my-app.js
+todo
 ```
 
 
