@@ -52,6 +52,41 @@ logger.debug('debug');
 ```
 
 
+## log levels
+
+to control the log level, pass the `LOG_LEVEL` environment variable.  
+
+- pass command names, e.g. `debug`, `warn`, to only switch on logging for that level.  
+  to switch on several levels, use pipes.
+
+- use an integer to indicate the maximum level to log
+
+
+**.env**
+
+```dotenv
+# this will only switch on debug messages
+LOG_LEVEL='debug'
+# this will switch on trace, success and dir all together
+LOG_LEVEL='trace|success|dir'
+# this will switch on messages with level 2 and above (i.e. success, warn and error)
+LOG_LEVEL=2
+```
+
+&hellip;or, from the shell:
+
+```bash
+# this will switch on messages with level 2 and above (i.e. success, warn and error)
+env LOG_LEVEL=2 node my-app.js
+```
+
+if you do any of these, debug/trace are switched on automatically:
+
+```bash
+env <DEBUG|TRACE>=true node my-app.js
+```
+
+
 
 
 [1]: https://img.shields.io/npm/v/modulog.svg?style=flat-square
