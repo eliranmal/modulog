@@ -56,11 +56,11 @@ logger.debug('debug');
 
 use the `LOG_LEVEL` environment variable, with the following possible values:
 
-- **command name**
+- **command name**  
   `'debug'`, `'warn'`, etc. will only switch on logging for that level.  
   pipes will switch on several levels, e.g. `'trace|dir'`.
 
-- **level number**
+- **level number**  
   `2`, `5`, etc. will switch on messages with that level and below, i.e. success, warn and error. the default level is `7` (everything).
   check out [commands.js][101] to see level numbers for each command.
 
