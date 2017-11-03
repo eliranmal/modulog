@@ -62,18 +62,7 @@ use the `LOG_LEVEL` environment variable, with the following possible values:
 
 - **level number**
   `2`, `7`, etc. will switch on messages with that level and below, i.e. success, warn and error.
-  
-  ```
-  error: 0
-  warn: 1
-  ok: 2
-  success: 2
-  log: 3
-  info: 4
-  dir: 5
-  debug: 6
-  trace: 7
-  ```
+  check out the [commands.js][101] to see level numbers for each command.
 
 
 ### examples
@@ -107,3 +96,4 @@ env <DEBUG|TRACE>=true node my-app.js
 
 [1]: https://img.shields.io/npm/v/modulog.svg?style=flat-square
 [2]: https://www.npmjs.com/package/modulog
+[101]: #/lib/commands.js
