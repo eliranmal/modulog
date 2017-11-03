@@ -96,4 +96,4 @@ env <DEBUG|TRACE>=true node my-app.js
 
 [1]: https://img.shields.io/npm/v/modulog.svg?style=flat-square
 [2]: https://www.npmjs.com/package/modulog
-[101]: #/lib/commands.js
+[101]: /lib/commands.js
