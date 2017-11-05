@@ -4,21 +4,22 @@ const assert = require('assert');
 const proxyquire = require('proxyquire').noCallThru();
 const memoryWriter = require('../stubs/memory-writer');
 const expectedOutputs = require('../expected/outputs');
+const {bindLogLevel} = require('../util/env');
+const {prop} = require('../util/object');
 
-const expectedIcons = Object.keys(expectedOutputs).reduce((accum, key) => {
-    accum[key] = expectedOutputs[key].icon;
-    return accum;
-}, {});
+
+const expectedIcons = prop(expectedOutputs, 'icon');
 
 const message = 'message';
 
-const modulog = proxyquire('../../lib/modulog', {
-    './out': memoryWriter.stub
-});
+let modulog;
 
 describe('icons', function () {
 
     beforeEach('setup', function () {
+        modulog = proxyquire('../../lib/modulog', {
+            './out': memoryWriter.stub
+        });
         memoryWriter.setBehaviours();
     });
 
@@ -30,18 +31,21 @@ describe('icons', function () {
 
         it(`should yield the message prefixed with the appropriate icon`, function () {
             modulog(message);
-            assert(memoryWriter.value().startsWith(expectedIcons.default), 
+            assert(memoryWriter.value().startsWith(expectedIcons.default),
                 `message should start with '${expectedIcons.default}', but instead '${memoryWriter.value().substr(0, 1)}' was found`)
         });
     });
 
     describe(`when an extended operation is called`, function () {
 
-        Object.keys(expectedIcons).forEach(function (cmd) {
-            if (cmd !== 'default') {
-                extendedOperationSpec(cmd);
-            }
-        });
+        // include all levels (debug/trace commands are switched off by default)
+        before('setup', bindLogLevel('.*'));
+
+        after('cleanup', bindLogLevel());
+
+        Object.keys(expectedIcons)
+            .filter(cmd => cmd !== 'default')
+            .forEach(cmd => extendedOperationSpec(cmd));
     });
 
 });

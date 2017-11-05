@@ -47,7 +47,9 @@ describe('api', function () {
         describe('when an extended operation is called', function () {
 
             Object.keys(expectedOutputs).forEach(function (cmd) {
-                if (cmd !== 'default') {
+                // exclude 'default' command - it's delegated via the 'log' command
+                // exclude commands that are switched off by default ('debug'/'trace')
+                if (!['default', 'debug', 'trace'].includes(cmd)) {
                     extendedOperationSpec(cmd)
                 }
             });

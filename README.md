@@ -54,15 +54,19 @@ logger.debug('debug');
 
 ## log levels
 
-use the `LOG_LEVEL` environment variable, with the following possible values:
+by default, all logger commands will send logs to stdout, except for _debug_ 
+and _trace_, which are switched off.
 
-- **command name**  
-  `'debug'`, `'warn'`, etc. will only switch on logging for that level.  
-  pipes will switch on several levels, e.g. `'trace|dir'`.
+to change this behavior, use the `LOG_LEVEL` environment variable:
 
-- **level number**  
-  `2`, `5`, etc. will switch on messages with that level and below, i.e. success, warn and error. the default level is `7` (everything).
-  check out [commands.js][101] to see level numbers for each command.
+- pass a single command name, e.g. `'debug'`, `'warn'`, to only switch on logging 
+for that level.
+- use pipes to switch on several levels, e.g. `'trace|dir'`.
+- to switch on logging for all commands, use `'.*'`.
+- to switch off logging entirely, use `' '`.
+
+in addition, if you run node with `debug`, `--inspect`, `--debug` or `--debug-brk`, 
+_debug_ and _trace_ are switched on automatically.
 
 
 ### examples
@@ -72,23 +76,28 @@ use the `LOG_LEVEL` environment variable, with the following possible values:
 ```dotenv
 # this will only switch on debug messages
 LOG_LEVEL='debug'
-# this will switch on trace, success and dir all together
+# this will switch on trace, success and dir
 LOG_LEVEL='trace|success|dir'
-# this will switch on success, warn and error all together
-LOG_LEVEL=2
 ```
 
 #### from the shell
 
 ```bash
-# this will switch on messages with level 2 and above (i.e. success, warn and error)
-env LOG_LEVEL=2 node my-app.js
+# this will switch on warn and error
+env LOG_LEVEL='warn|error' node my-app.js
+# this will switch on logging for all commands
+env LOG_LEVEL='.*' node my-app.js
+# this will switch off logging entirely
+env LOG_LEVEL=' ' node my-app.js
 ```
 
 if you do any of these, debug/trace are switched on automatically:
 
 ```bash
-todo
+node debug my-app.js
+node --inspect my-app.js
+node --debug my-app.js
+node --debug-brk my-app.js
 ```
 
 
